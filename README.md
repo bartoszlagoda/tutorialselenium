@@ -6,8 +6,10 @@ This app is inspired by Tester oprogramowania and his course on the Udemy platfo
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Useful maven commands](#useful-maven-commands)
-* [Webdriver](#webdriver)
-* [WebDriverManager](#webdrivermanager)
+* [Setup](#setup)
+  * [Webdriver](#webdriver)
+  * [WebDriverManager](#webdrivermanager)
+  * [Setting the screen size](#setting-the-screen-size)
 ## General info
 To be completed.
 ## Technologies
@@ -23,7 +25,8 @@ To be completed.
 * mvn clean - cleans the target file
 
 [Maven repository](https://mvnrepository.com/) is a page that contains all Maven dependencies, which you can copy and paste into your dependencies in the pom.xml file.
-## Webdriver
+## Setup
+### Webdriver
 To run a browser (Chrome, Edge, Firefox, etc.) you need to install a dedicated driver for a specific browser. For example, for Google Chrome it will be [chromedriver](https://googlechromelabs.github.io/chrome-for-testing/).
 You must install a driver compatible with the browser version. To check it, you need to go to your browser settings and information.
 After installation, you can perform the first test to check whether the Webdriver interface opens the selected browser correctly. Below is an example:
@@ -36,7 +39,7 @@ However, the suggested solution is to add these variables to your environment va
 However, the suggested solution is to add these variables to your environment variables. Go to advanced system settings. 
 Then go to environment variables. In system variables, select the 'path' variable to edit. Then click on 'New' and add the paths to all installed drivers.
 Thanks to this solution, you can remove the line in the code containing setProperty().
-## WebDriverManager
+### WebDriverManager
 As written in the source: [WebDriverManager](https://github.com/bonigarcia/webdrivermanager?tab=readme-ov-file) is an open-source Java library that carries out the management (i.e., download, setup, and maintenance) of the drivers required by Selenium WebDriver (e.g., chromedriver, geckodriver, msedgedriver, etc.) in a fully automated manner. 
 In addition, WebDriverManager provides other relevant features, such as the capability to discover browsers installed in the local system, building WebDriver objects (such as ChromeDriver, FirefoxDriver, EdgeDriver, etc.), and running browsers in Docker containers seamlessly.
 You need add this into your pom.xml file:
@@ -47,4 +50,15 @@ You need add this into your pom.xml file:
     <artifactId>webdrivermanager</artifactId>
     <version>5.6.3</version>
 </dependency>
+```
+This will make it easier to set up the driver and run the selected browser. You can test this as follows:
+```
+WebDriverManager.chromedriver().setup();
+WebDriver driver = new ChromeDriver();
+```
+### Setting the screen size
+```
+driver.manage().window().maximize();
+Dimension dimension = new Dimension(200,200);
+driver.manage().window().setSize(dimension);
 ```

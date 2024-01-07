@@ -1,3 +1,4 @@
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -7,8 +8,11 @@ public class SeleniumTest {
     @Test
     public void openGooglePage(){
         //otwieranie przeglądarki Chrome (potrzebny jest zainstalowany chromedriver zgodny z wersją Chrome)
-        WebDriver driver = getDriver("edge");
-        driver.get("https://www.google.com/");
+        WebDriver driver = getDriver("chrome");
+        // otworzenie okna przeglądarki na pełnym ekranie
+        driver.manage().window().maximize();
+        Dimension dimension = new Dimension(200,200);
+        driver.manage().window().setSize(dimension);
     }
 
     public WebDriver getDriver(String browser) throws IllegalArgumentException{
