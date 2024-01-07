@@ -62,3 +62,15 @@ driver.manage().window().maximize();
 Dimension dimension = new Dimension(200,200);
 driver.manage().window().setSize(dimension);
 ```
+### Closing the browser
+There are two methods to close a browser window: quit and close.
+#### quit
+```
+driver.quit();
+```
+Will close all invoked windows.
+#### close
+```
+driver.close();
+```
+It will only close the first invoked window in the test.
