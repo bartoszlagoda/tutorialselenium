@@ -20,6 +20,8 @@ To be completed.
 * mvn package - packs the compiled code into e.g. jar
 * mvn install - installing the package to our local repository
 * mvn clean - cleans the target file
+
+  [Maven repository](https://mvnrepository.com/) is a page that contains all Maven dependencies, which you can copy and paste into your dependencies in the pom.xml file.
 ## Webdriver
 To run a browser (Chrome, Edge, Firefox, etc.) you need to install a dedicated driver for a specific browser. For example, for Google Chrome it will be [chromedriver](https://googlechromelabs.github.io/chrome-for-testing/).
 You must install a driver compatible with the browser version. To check it, you need to go to your browser settings and information.
