@@ -5,6 +5,8 @@ This app is inspired by Tester oprogramowania and his course on the Udemy platfo
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [Useful maven commands](#useful-maven-commands)
+* [Webdriver](#webdriver)
 ## General info
 To be completed.
 ## Technologies
@@ -12,6 +14,12 @@ To be completed.
 * Apache Maven 3.8.6
 * Selenium 4.16.1
 * Google Chrome 120.0.6099.200
+## Useful maven commands
+* mvn compile - compiles the source code
+* mvn test - runs tests
+* mvn package - packs the compiled code into e.g. jar
+* mvn install - installing the package to our local repository
+* mvn clean - cleans the target file
 ## Webdriver
 To run a browser (Chrome, Edge, Firefox, etc.) you need to install a dedicated driver for a specific browser. For example, for Google Chrome it will be [chromedriver](https://googlechromelabs.github.io/chrome-for-testing/).
 You must install a driver compatible with the browser version. To check it, you need to go to your browser settings and information.
@@ -21,3 +29,7 @@ String path = "path\\to\\chromedriver.exe";
 System.setProperty("webdriver.chrome.driver", path);
 WebDriver driver = new ChromeDriver();
 ```
+However, the suggested solution is to add these variables to your environment variables. Everything can be done in 'cmd'.
+However, the suggested solution is to add these variables to your environment variables. Go to advanced system settings. 
+Then go to environment variables. In system variables, select the 'path' variable to edit. Then click on 'New' and add the paths to all installed drivers.
+Thanks to this solution, you can remove the line in the code containing setProperty().
