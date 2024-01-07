@@ -35,3 +35,13 @@ However, the suggested solution is to add these variables to your environment va
 However, the suggested solution is to add these variables to your environment variables. Go to advanced system settings. 
 Then go to environment variables. In system variables, select the 'path' variable to edit. Then click on 'New' and add the paths to all installed drivers.
 Thanks to this solution, you can remove the line in the code containing setProperty().
+## WebDriverManager
+As written in the source: [WebDriverManager](https://github.com/bonigarcia/webdrivermanager?tab=readme-ov-file) is an open-source Java library that carries out the management (i.e., download, setup, and maintenance) of the drivers required by Selenium WebDriver (e.g., chromedriver, geckodriver, msedgedriver, etc.) in a fully automated manner. In addition, WebDriverManager provides other relevant features, such as the capability to discover browsers installed in the local system, building WebDriver objects (such as ChromeDriver, FirefoxDriver, EdgeDriver, etc.), and running browsers in Docker containers seamlessly.
+```
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.6.3</version>
+</dependency>
+```
