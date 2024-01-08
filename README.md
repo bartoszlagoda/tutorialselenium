@@ -11,7 +11,7 @@ This app is inspired by Tester oprogramowania and his course on the Udemy platfo
   * [WebDriverManager](#webdrivermanager)
   * [Setting the screen size](#setting-the-screen-size)
 ## General info
-To be completed.
+The repository presents selenium tests in Java on the [seleniumdemo website](http://www.seleniumdemo.com).
 ## Technologies
 * Java 18.0.1.1 2022-04-22
 * Apache Maven 3.8.6
@@ -74,3 +74,11 @@ Will close all invoked windows.
 driver.close();
 ```
 It will only close the first invoked window in the test.
+### Javascript Executor
+It is used to invoke javascript commands inside selenium. Example of use:
+```
+// create javascript executor
+JavascriptExecutor executor = (JavascriptExecutor) driver;
+// open testeroprogramowania page and set window size to 200x200 with naming page blank
+executor.executeScript("window.open('https://www.testeroprogramowania.pl','blank','height=200','width=200')");
+```
