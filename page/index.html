@@ -3,8 +3,11 @@
 	<head> <!-- informacje niewyswietlane na stronie -->
 		<title>To jest tytul...</title>
 		<!-- jedną z możliwości wpisywania stylów jest umieszczenie ich w head i odwoływanie się do css -->
+		<!-- do klasy odwołujemy się przez .class {...} -->
+		<!-- <style> przedstawia właśnie to co można wydzielić do innego pliku w formacie .css -->
 		<style>
-			button {background-color:red}
+			.danger {background-color:yellow}
+			#unique {background-color:green}
 		</style>
 	</head>
 	<body> <!-- cała treść wyświetlana użytkownikowi -->
@@ -18,7 +21,7 @@
 <!--		<button class="danger" style="background-color:red">Niebezpieczny</button>-->
 		<button class="danger">Niebezpieczny</button>
 		<button class="danger">Drugi niebezpieczny</button>
-		<div>Element blokowy</div>
+		<div id="unique">Element blokowy</div>
 		<span>Hello I am span! Element liniowy</span>
 		<input id="name"></input> <!-- atrybut id:name -->
 		<ul> <!-- lista elementow -->
