@@ -2,6 +2,10 @@
 <html>
 	<head> <!-- informacje niewyswietlane na stronie -->
 		<title>To jest tytul...</title>
+		<!-- jedną z możliwości wpisywania stylów jest umieszczenie ich w head i odwoływanie się do css -->
+		<style>
+			button {background-color:red}
+		</style>
 	</head>
 	<body> <!-- cała treść wyświetlana użytkownikowi -->
 		<h1> Witaj na stronie testowej </h1>
@@ -10,6 +14,8 @@
 		<!-- przyciski chcemy pokolorować na czerwono -->
 		<!-- atrybutem class możemy grupować -->
 		<button>Kliknij mnie</button>
+		<!-- pokolorowanie przycisku na czerwono -->
+<!--		<button class="danger" style="background-color:red">Niebezpieczny</button>-->
 		<button class="danger">Niebezpieczny</button>
 		<button class="danger">Drugi niebezpieczny</button>
 		<div>Element blokowy</div>
