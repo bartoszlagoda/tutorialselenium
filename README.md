@@ -82,3 +82,10 @@ JavascriptExecutor executor = (JavascriptExecutor) driver;
 // open testeroprogramowania page and set window size to 200x200 with naming page blank
 executor.executeScript("window.open('https://www.testeroprogramowania.pl','blank','height=200','width=200')");
 ```
+### Inspect option in Google Chrome Browser
+The Google Chrome browser offers us a page inspection function. 
+This is a development tool that will allow us to determine the structure of the page 
+being examined and how a specific element is presented on it. To use this option, 
+right-click on the selected website and select the Inspect option. Developer options 
+with html&css code should appear. To quickly inspect the structure of a specific field, 
+click the arrow button pointing to the square and point to the selected element on the page.
