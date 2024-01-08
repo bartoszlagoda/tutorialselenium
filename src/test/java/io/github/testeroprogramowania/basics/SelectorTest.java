@@ -1,7 +1,9 @@
 package io.github.testeroprogramowania.basics;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
@@ -16,5 +18,8 @@ public class SelectorTest {
         driver.manage().window().maximize();
         // przejście do strony testeroprogramowania
         driver.get("https://testeroprogramowania.github.io/selenium/basics.html");
+        //znajdź element o id=clickOnMe
+        WebElement clickOnMeButton = driver.findElement(By.id("clickOnMe"));
+        driver.close();
     }
 }
