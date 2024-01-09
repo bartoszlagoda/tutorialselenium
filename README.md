@@ -109,5 +109,23 @@ $$("input")
 
 Tag selector checking:
 $$("[tagType='nameOfTagType']")
+
+Printing all tags on the page:
+$$("*")
+
+All elements ul located in div:
+$$("div ul")
+
+All rows tr located in table:
+$$("table tr")
+---------------------------------------------------
+Even though tr is in the table - tbody, the search takes place within 
+the entire table, not only at the first level.
+
+All tr elements in table -> tbody:
+$$("tbody tr")
+
+First child element in parent div:
+$$("div > ul")
 ```
 The same works for finding elements with css selectors in selenium. Look into SelectorTest.java for the example. 
