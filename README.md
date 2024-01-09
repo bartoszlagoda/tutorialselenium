@@ -12,6 +12,7 @@ This app is inspired by Tester oprogramowania and his course on the Udemy platfo
   * [Setting the screen size](#setting-the-screen-size)
 ## General info
 The repository presents selenium tests in Java on the [seleniumdemo website](http://www.seleniumdemo.com).
+Some code elements are prepared on the basis of a [test page](https://testeroprogramowania.github.io/selenium).
 ## Technologies
 * Java 18.0.1.1 2022-04-22
 * Apache Maven 3.8.6
