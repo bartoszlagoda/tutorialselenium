@@ -46,30 +46,5 @@ public class SelectorTest {
         WebElement w3schoolsLink = driver.findElement(By.linkText("Visit W3Schools.com!"));
         // znajdź link w3schools na stronie po części tekstu opisującego ten link
         WebElement w3schoolsPartLink = driver.findElement(By.partialLinkText("W3Schools"));
-
-        // znajdź wszystkie tagi występujące na stronie
-        By all = By.cssSelector("*");
-        driver.findElements(all);
-
-        // wszystkie elementy ul znajdujące się w div
-        By ulInDiv = By.cssSelector("div ul");
-        // wszystkie elementy tr znajdujące się w table -> tbody
-        By trInTable = By.cssSelector("table tr");
-        By trInBody = By.cssSelector("tbody tr");
-        driver.findElement(ulInDiv);
-        driver.findElement(trInTable);
-        driver.findElement(trInBody);
-
-        // tylko pierwszy element ul w div i tr w tbody
-        By firstChildUlInDiv = By.cssSelector("div > ul");
-        By firstChildTrInTbody = By.cssSelector("tbody > tr");
-        driver.findElement(firstChildUlInDiv);
-        driver.findElement(firstChildTrInTbody);
-
-        // znajdź pierwszy selektor <form> który znajduje się od razu po <label>
-        driver.findElement(By.cssSelector("label + form"));
-        // znajdź wszystkie selektory <form>, które znajdują się po <label>
-        driver.findElement(By.cssSelector("label ~ form"));
-        driver.close();
     }
 }

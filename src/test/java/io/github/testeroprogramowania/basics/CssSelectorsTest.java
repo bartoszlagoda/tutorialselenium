@@ -42,5 +42,42 @@ public class CssSelectorsTest {
         WebElement cssFirstName = driver.findElement(firstName);
         By cssClass = By.cssSelector("[class='topSecret']");
         WebElement cssClassFindEl = driver.findElement(cssClass);
+
+        // <!-- znajdowanie po atrybutach NAME w inputach w CSS -->
+        driver.findElement(By.cssSelector("input[name='fname']"));
+
+        // <!-- znajdowanie po atrybutach NAME zawierających name w swoich nazwach w CSS -->
+        driver.findElement(By.cssSelector("[name*='name']"));
+
+        // <!-- znajdowanie po atrybutach NAME zaczynających się w swoich nazwach od fna w CSS -->
+        driver.findElement(By.cssSelector("[name^='fna']"));
+
+        // <!-- znajdowanie po atrybutach NAME konczacych się w swoich nazwach na me w CSS -->
+        driver.findElement(By.cssSelector("[name$='me']"));
+
+        // znajdź wszystkie tagi występujące na stronie
+        By all = By.cssSelector("*");
+        driver.findElements(all);
+
+        // wszystkie elementy ul znajdujące się w div
+        By ulInDiv = By.cssSelector("div ul");
+        // wszystkie elementy tr znajdujące się w table -> tbody
+        By trInTable = By.cssSelector("table tr");
+        By trInBody = By.cssSelector("tbody tr");
+        driver.findElement(ulInDiv);
+        driver.findElement(trInTable);
+        driver.findElement(trInBody);
+
+        // tylko pierwszy element ul w div i tr w tbody
+        By firstChildUlInDiv = By.cssSelector("div > ul");
+        By firstChildTrInTbody = By.cssSelector("tbody > tr");
+        driver.findElement(firstChildUlInDiv);
+        driver.findElement(firstChildTrInTbody);
+
+        // znajdź pierwszy selektor <form> który znajduje się od razu po <label>
+        driver.findElement(By.cssSelector("label + form"));
+        // znajdź wszystkie selektory <form>, które znajdują się po <label>
+        driver.findElement(By.cssSelector("label ~ form"));
+        driver.close();
     }
 }
