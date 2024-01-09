@@ -62,10 +62,14 @@ public class SelectorTest {
 
         // tylko pierwszy element ul w div i tr w tbody
         By firstChildUlInDiv = By.cssSelector("div > ul");
-        By firstChildTrInTbody = By.cssSelector("tbody < tr");
+        By firstChildTrInTbody = By.cssSelector("tbody > tr");
         driver.findElement(firstChildUlInDiv);
         driver.findElement(firstChildTrInTbody);
 
+        // znajdź pierwszy selektor <form> który znajduje się od razu po <label>
+        driver.findElement(By.cssSelector("label + form"));
+        // znajdź wszystkie selektory <form>, które znajdują się po <label>
+        driver.findElement(By.cssSelector("label ~ form"));
         driver.close();
     }
 }
