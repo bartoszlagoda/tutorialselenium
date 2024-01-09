@@ -91,3 +91,23 @@ being examined and how a specific element is presented on it. To use this option
 right-click on the selected website and select the Inspect option. Developer options 
 with html&css code should appear. To quickly inspect the structure of a specific field, 
 click the arrow button pointing to the square and point to the selected element on the page.
+
+### Verification of CSS selectors in the Web Browser
+In the browser's developer tools, there is an option to check whether we are defining CSS selectors correctly.
+Firstly go to the console in the menu.
+```
+Id selector checking:
+$$("#selectorIdChecking")
+----------------------------------------------------------------
+In the "" we need complete name of id css selector after # sign
+
+Class selector checking:
+$$(".topSecret")
+
+Input selector checking:
+$$("input")
+
+Tag selector checking:
+$$("[tagType='nameOfTagType']")
+```
+The same works for finding elements with css selectors in selenium. Look into SelectorTest.java for the example. 
