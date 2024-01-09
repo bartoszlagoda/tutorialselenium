@@ -17,6 +17,7 @@ Some code elements are prepared on the basis of a [test page](https://testeropro
 * Java 18.0.1.1 2022-04-22
 * Apache Maven 3.8.6
 * Selenium 4.16.1
+* TestNG 7.6.0
 * Google Chrome 120.0.6099.200
 ## Useful maven commands
 * mvn compile - compiles the source code
