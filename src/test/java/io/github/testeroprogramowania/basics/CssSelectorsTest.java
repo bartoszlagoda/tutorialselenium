@@ -78,6 +78,14 @@ public class CssSelectorsTest {
         driver.findElement(By.cssSelector("label + form"));
         // znajdź wszystkie selektory <form>, które znajdują się po <label>
         driver.findElement(By.cssSelector("label ~ form"));
+
+        // rodzice i dzieci w liście
+        // pierwsze dziecko tagu nadrzędnego
+        driver.findElement(By.cssSelector("li:first-child"));
+        // ostatnie dziecko tagu nadrzędnego
+        driver.findElement(By.cssSelector("li:last-child"));
+        // któreś z kolei dziecko tagu nadrzędnego (numerujemy od 1)
+        driver.findElement(By.cssSelector("li:nth-child(1)"));
         driver.close();
     }
 }
