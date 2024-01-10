@@ -129,3 +129,19 @@ First child element in parent div:
 $$("div > ul")
 ```
 The same works for finding elements with css selectors in selenium. Look into SelectorTest.java for the example. 
+### XPath selectors
+XPath is also known as XML Path Language, a language for describing XML paths. The XPaths search path in Google Chrome developer tools is:
+```
+$x("some-xpath")
+-----------------------------------
+/ – starts the search from the root element (i.e. document in our case)
+// – selects all nodes in the document
+node_name – indicates all nodes of a given type
+. – used to select the current node
+.. – indicates the parent of the current node
+@ – used to specify attributes
+```
+In its structure, it looks like providing a path to a specific file. Fo example:
+```
+$x("html/body/button")
+```
