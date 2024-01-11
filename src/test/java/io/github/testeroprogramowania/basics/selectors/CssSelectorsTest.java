@@ -1,4 +1,4 @@
-package io.github.testeroprogramowania.basics;
+package io.github.testeroprogramowania.basics.selectors;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

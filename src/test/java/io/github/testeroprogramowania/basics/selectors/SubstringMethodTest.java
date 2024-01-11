@@ -1,4 +1,4 @@
-package io.github.testeroprogramowania.basics;
+package io.github.testeroprogramowania.basics.selectors;
 
 public class SubstringMethodTest {
     public static void main(String[] args) {
