@@ -36,6 +36,8 @@ public class BasicActionsTest {
         WebElement usernameInput = driver.findElement(By.name("username"));
         usernameInput.clear(); // czyszczenie pola
         usernameInput.sendKeys("admin"); // wpisanie 'admin'
+//        System.out.println(usernameInput.getText()); // ta metoda dla inputu nie zadziała
+        System.out.println(usernameInput.getAttribute("value")); // to jest metoda drukujaca dla inputa
 //        usernameInput.sendKeys(Keys.ENTER); // zasymulowanie wciśnięcia ENTER
         usernameInput.sendKeys(Keys.TAB); // przeniesienie do pola hasło poprzez sym. wcisniecia TAB
 
@@ -60,9 +62,18 @@ public class BasicActionsTest {
             System.out.println(option.getText()); // wypisanie tekstu dla każdego elementu z listy
         } // metoda ta działa na każdy WebElement
 
+        SelectCheck selectCheck = new SelectCheck();
+        System.out.println(selectCheck.checkIfSelectExist(selectCar,"Audi"));
+        System.out.println(selectCheck.checkIfSelectExist(selectCar,"Andi"));
+
+        WebElement hiddenParagraph = driver.findElement(By.cssSelector(".topSecret"));
+        System.out.println("By text: " + hiddenParagraph.getText()); // empty
+        System.out.println("By attribute value: " + hiddenParagraph.getAttribute("value")); // null
+        System.out.println("By attribute text content: " + hiddenParagraph.getAttribute("textContent")); // prawidłowa wartość
+
+
         // kliknięcie w przycisk "Kliknij mnie!"
 //        WebElement clickOnMeButton = driver.findElement(By.id("clickOnMe"));
 //        clickOnMeButton.click();
-
     }
 }

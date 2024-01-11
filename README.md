@@ -145,3 +145,5 @@ In its structure, it looks like providing a path to a specific file. Fo example:
 ```
 $x("html/body/button")
 ```
+### JavaScript Popup Boxes
+[Link](https://www.w3schools.com/js/js_popup.asp) to Popup Boxes introduction.
