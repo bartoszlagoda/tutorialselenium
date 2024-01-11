@@ -59,11 +59,24 @@ public class XPathSelectorsTest {
         // lokalizowanie ostatniego elementu typu button, który ma id (jeśli nie znamy ilości inputów na stronie)
         driver.findElement(By.xpath("(//button[@id])[last()]"));
         //lokalizowanie wszystkich elementów o tagu name = fname
-        driver.findElement(By.xpath("(//*[@name='fname']"));
+        driver.findElement(By.xpath("//*[@name='fname']"));
         //lokalizowanie wszystkich elementów posiadających tag name = fname
-        driver.findElement(By.xpath("(//*[@name]"));
+        driver.findElement(By.xpath("//*[@name]"));
 
-
+        // Jak lokalizować elementy zwracając uwagę na wartość atrybutu jakiegoś znacznika
+        driver.findElement(By.xpath("//button[@id='clickOnMe']"));
+        //szukamy jakiegoś buttona, dla którego wartość posiadanego id nie równa się clickOnMe
+        driver.findElement(By.xpath("//button[@id!='clickOnMe']"));
+        //szukamy jakiegoś elementu, dla którego wartość posiadanego id nie równa się clickOnMe
+        driver.findElement(By.xpath("//*[@id!='clickOnMe']"));
+        // jakiś element, który zawiera atrybut name zawierający ciąg znaków 'ame' w swojej nazwie
+        driver.findElement(By.xpath("//*[contains(@name,'ame')]"));
+        // jakiś element, który zawiera atrybut name zaczynający się od pewnego ciągu znaków
+        driver.findElement(By.xpath("//*[starts-with(@name,'fnam')]"));
+        // jakiś element, który zawiera atrybut name kończący się pewnym ciągiem znaków
+//        driver.findElement(By.xpath("//*[ends-with(@name,'me')]")); // może nie działać na pewnych wersjach
+        // xPath -> numeracja od 1, java -> numeracja od 0
+        driver.findElement(By.xpath("//*[substring(@name,string-length(@name) - string-length('ame')+1)='ame']"));
 
     }
 }
