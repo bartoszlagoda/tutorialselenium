@@ -78,5 +78,41 @@ public class XPathSelectorsTest {
         // xPath -> numeracja od 1, java -> numeracja od 0
         driver.findElement(By.xpath("//*[substring(@name,string-length(@name) - string-length('ame')+1)='ame']"));
 
+        // ------------------ Dzieci, rodzice, wstępni, zstępni ------------------
+        // dziecko znacznika div, którym jest ul
+        driver.findElement(By.xpath("//div/child::ul"));
+        // wszystkie tagi ul w div
+        driver.findElement(By.xpath("//div//ul"));
+        // wszystkie dzieci (zstępni) ul diva
+        driver.findElement(By.xpath("//div/descendant::ul"));
+        // wszystkie dzieci (zstępni) diva
+        driver.findElement(By.xpath("//div/descendant::*"));
+        // wszystkie tagi, które są nad div
+        driver.findElement(By.xpath("//div/ancestor::*"));
+        // tag body, który jest nad div
+        driver.findElement(By.xpath("//div/ancestor::body"));
+        // bezpośredni rodzic dla div
+        driver.findElement(By.xpath("//div/.."));
+        // bezpośredni rodzic dla div i kolejne odwołanie do następnego rodzica
+        driver.findElement(By.xpath("//div/../.."));
+        // --- wybieranie tagów występujących po naszym elemencie ---
+        // wszystkie tagi następujące po obrazku 'img'
+        driver.findElement(By.xpath("//img/following::*"));
+        // tagi na tym samym poziomie co 'img'
+        driver.findElement(By.xpath("//img/following-sibling::*"));
+        // tagi przed tagiem 'img'
+        driver.findElement(By.xpath("//img/preceding::*"));
+
+        // ----------- Lokalizowanie pewnych elementów w jednym wyszukiwaniu -----------
+        // szukanie jednocześnie linków i inputów
+        driver.findElement(By.xpath("//a | //input"));
+        // szukanie jednocześnie linków i divów
+        driver.findElement(By.xpath("//a | //div"));
+        // szukanie jednocześnie spełnionych dwóch warunków: name i id równe fname
+        driver.findElement(By.xpath("//input[@name='fname' and @id='fname']"));
+        // szukanie jednego spełnionego warunku z dwóch warunków: name lub id równe fname
+        driver.findElement(By.xpath("//input[@name='fname' or @id='fnam']"));
+
+
     }
 }
