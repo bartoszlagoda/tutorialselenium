@@ -1,10 +1,7 @@
 package io.github.testeroprogramowania.basics;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -38,8 +35,13 @@ public class BasicActionsTest {
         usernameInput.sendKeys("admin"); // wpisanie 'admin'
 //        System.out.println(usernameInput.getText()); // ta metoda dla inputu nie zadziała
         System.out.println(usernameInput.getAttribute("value")); // to jest metoda drukujaca dla inputa
-//        usernameInput.sendKeys(Keys.ENTER); // zasymulowanie wciśnięcia ENTER
-        usernameInput.sendKeys(Keys.TAB); // przeniesienie do pola hasło poprzez sym. wcisniecia TAB
+        usernameInput.sendKeys(Keys.ENTER); // zasymulowanie wciśnięcia ENTER
+//        usernameInput.sendKeys(Keys.TAB); // przeniesienie do pola hasło poprzez sym. wcisniecia TAB
+
+        // Obsługa alertu
+        Alert firstAlert = driver.switchTo().alert();
+        firstAlert.accept(); // akceptacja alertu
+        driver.switchTo().alert().accept(); // akceptacja drugiego alertu (nie trzeba tworzyć obiektów)
 
         // zaznaczenie checkboxa na stronie
         WebElement checkBoxClick = driver.findElement(By.cssSelector("[type='checkbox']"));
@@ -73,7 +75,9 @@ public class BasicActionsTest {
 
 
         // kliknięcie w przycisk "Kliknij mnie!"
-//        WebElement clickOnMeButton = driver.findElement(By.id("clickOnMe"));
-//        clickOnMeButton.click();
+        WebElement clickOnMeButton = driver.findElement(By.id("clickOnMe"));
+        clickOnMeButton.click();
+
+        driver.quit(); // zamknij wszystkie otwarte okna dla tego testu
     }
 }
