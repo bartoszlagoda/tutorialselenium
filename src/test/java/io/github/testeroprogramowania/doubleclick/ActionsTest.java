@@ -1,13 +1,13 @@
-package io.github.testeroprogramowania.fileupload;
+package io.github.testeroprogramowania.doubleclick;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 
 public class ActionsTest {
@@ -20,11 +20,13 @@ public class ActionsTest {
         // otworzenie okna przeglądarki na pełnym ekranie
         driver.manage().window().maximize();
         // przejście do strony testeroprogramowania
-        driver.get("https://testeroprogramowania.github.io/selenium/fileupload.html");
+        driver.get("https://testeroprogramowania.github.io/selenium/doubleclick.html");
 
         // klikanie prawym przyciskiem myszy
         Actions actions = new Actions(driver);
-        actions.contextClick(driver.findElement(By.id("myFile"))).perform();
+        actions.contextClick().perform(); // kliknięcie prawym przyciskiem myszy
 
+        WebElement button = driver.findElement(By.id("bottom"));
+        actions.doubleClick(button).perform(); // podwójne kliknięcie na element bottom
     }
 }
