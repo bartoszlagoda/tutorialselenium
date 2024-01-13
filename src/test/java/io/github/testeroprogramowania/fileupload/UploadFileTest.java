@@ -1,9 +1,10 @@
-package io.github.testeroprogramowania.basics;
+package io.github.testeroprogramowania.fileupload;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -37,6 +38,10 @@ public class UploadFileTest {
         File srcFile = screenshot.getScreenshotAs(OutputType.FILE); // tworzenie obiektu klasy File dla screenshota, który jest enumem
         String fileNameAfterUpload = "AfterUpload" + randomNumber + ".png"; // tworzenie nazwy dla każdego kolejnego screenshota
         FileUtils.copyFile(srcFile,new File("src/test/resources/screenshots/" + fileNameAfterUpload)); // copyFile potrzebuje wyjątku
+
+        // klikanie prawym przyciskiem myszy
+        Actions actions = new Actions(driver);
+        actions.contextClick(driver.findElement(By.id("myFile"))).perform();
 
     }
 }
