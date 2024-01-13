@@ -147,3 +147,13 @@ $x("html/body/button")
 ```
 ### JavaScript Popup Boxes
 [Link](https://www.w3schools.com/js/js_popup.asp) to Popup Boxes introduction.
+### Sikulix File Upload
+Sikulix helps you automate adding files via your browser. For proper operation in Maven for Java, you must enter the following dependency in the pom.xml file:
+```
+<dependency>
+    <groupId>com.sikulix</groupId>
+    <artifactId>sikulixapi</artifactId>
+    <version>1.1.0</version>
+</dependency>
+```
+[Link](https://olyv-qa.blogspot.com/2016/11/using-sikulix-to-handle-file-upload.html) to an article describing Sikulix.
