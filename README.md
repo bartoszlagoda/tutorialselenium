@@ -10,6 +10,13 @@ This app is inspired by Tester oprogramowania and his course on the Udemy platfo
   * [Webdriver](#webdriver)
   * [WebDriverManager](#webdrivermanager)
   * [Setting the screen size](#setting-the-screen-size)
+  * [Closing the browser](#closing-the-browser)
+  * [Javascript Executor](#javascript-executor)
+  * [Inspect option in Google Chrome Browser](#inspect-option-in-google-chrome-browser)
+  * [Verification of CSS selectors in the Web Browser](#verification-of-css-selectors-in-the-web-browser)
+  * [XPath selectors](#xpath-selectors)
+  * [JavaScript Popup Boxes](#javascript-popup-boxes)
+  * [Sikulix File Upload](#sikulix-file-upload)
 ## General info
 The repository presents selenium tests in Java on the [seleniumdemo website](http://www.seleniumdemo.com).
 Some code elements are prepared on the basis of a [test page](https://testeroprogramowania.github.io/selenium).
