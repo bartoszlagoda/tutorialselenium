@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ElementExistTest {
@@ -22,13 +23,26 @@ public class ElementExistTest {
         // przejście do strony testeroprogramowania
         driver.get("https://testeroprogramowania.github.io/selenium/basics.html");
 
-        System.out.println(elementExist((By.tagName("p"))));
-        System.out.println(elementExist((By.id("topSecret"))));
+        Assert.assertTrue(elementExist((By.tagName("p"))));
+        Assert.assertFalse(elementExist((By.id("topSecret"))));
 
-        System.out.println(elementExistBySize((By.tagName("p"))));
-        System.out.println(elementExistBySize((By.id("topSecret"))));
+        Assert.assertTrue(elementExistBySize((By.tagName("p"))));
+        Assert.assertFalse(elementExistBySize((By.id("topSecret"))));
+
+        // czy element jest wyświetlony?
+        Assert.assertFalse(driver.findElement(By.tagName("p")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.tagName("button")).isDisplayed()); // true
+
+        // czy możliwa jest interakcja z przyciskiem
+        Assert.assertTrue(driver.findElement(By.tagName("button")).isEnabled()); // true
+
+        WebElement checkbox = driver.findElement(By.cssSelector("[type='checkbox']"));
+        checkbox.click();
+        // czy element jest zaznaczony?
+        Assert.assertTrue(checkbox.isSelected());
     }
 
+    // czy element istnieje na stronie - 1
     public boolean elementExist(By locator){
         try{
             driver.findElement(locator);
@@ -37,6 +51,7 @@ public class ElementExistTest {
             return false;
         }
     }
+    // czy element istnieje na stronie - 2
     public boolean elementExistBySize(By locator){
         return driver.findElements(locator).size() > 0;
     }
