@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -58,6 +59,49 @@ public class FirstTest extends BaseTest{
         System.out.println("Klasa: FirstTest, Metoda: firstTest");
 
         driver.quit();
+    }
+
+    @Test
+    public void softAssertionTest(){
+        //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
+        WebDriverManager.chromedriver().setup();
+        // uruchomienie przeglądarki Chrome
+        driver = new ChromeDriver();
+
+        // otworzenie okna przeglądarki na pełnym ekranie
+        driver.manage().window().maximize();
+        // przejście do strony testeroprogramowania
+        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
+
+        driver.findElement(By.id("clickOnMe")).click();
+
+        FluentWait<WebDriver> wait = new FluentWait<>(driver);
+        // (WebDriverWait to ma wbudowane)
+        wait.ignoring(NoSuchElementException.class); // dodanie ignorowania NoSuchElementException
+        wait.withTimeout(Duration.ofSeconds(10));
+        wait.pollingEvery(Duration.ofSeconds(1)); // co 1 sekundę odpytuj
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p")));
+        waitForElementToExist(By.cssSelector("p"));
+
+        WebElement para = driver.findElement(By.cssSelector("p"));
+
+        // Przykład asercji miękkich (softAssert)
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals(para.isDisplayed(),true);
+        softAssert.assertEquals(para.getText(),"Dopiero","Teksty sa rozne."); // doda naszą wiadomość do błędu
+        softAssert.assertTrue(para.isDisplayed()); // lepsze niz to u góry
+
+        softAssert.assertTrue(para.getText().startsWith("Dopiero"));
+        softAssert.assertFalse(para.getText().startsWith("Pojawiłem"));
+        softAssert.assertEquals(para.getText(),"Dopiero się","Teksty sa rozne."); // doda naszą wiadomość do błędu
+
+        softAssert.assertEquals(para.getText(),"Dopiero się pojawiłem!");
+
+        System.out.println("Klasa: FirstTest, Metoda: firstTest");
+
+        driver.quit();
+        softAssert.assertAll();
     }
 
     @Test
