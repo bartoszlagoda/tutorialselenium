@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
@@ -20,17 +19,10 @@ import java.util.List;
 public class FirstTest extends BaseTest{
 
     // WebDriverWait rozszerza FluentWait
-    WebDriver driver;
 
     @Test
     public void firstTest(){
-        //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
-        WebDriverManager.chromedriver().setup();
-        // uruchomienie przeglądarki Chrome
-        driver = new ChromeDriver();
 
-        // otworzenie okna przeglądarki na pełnym ekranie
-        driver.manage().window().maximize();
         // przejście do strony testeroprogramowania
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
@@ -59,19 +51,11 @@ public class FirstTest extends BaseTest{
         Assert.assertEquals(para.getText(),"Dopiero","Teksty sa rozne."); // doda naszą wiadomość do błędu
 
         System.out.println("Klasa: FirstTest, Metoda: firstTest");
-
-        driver.quit();
     }
 
-    @Test @Ignore
+    @Test
     public void softAssertionTest(){
-        //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
-        WebDriverManager.chromedriver().setup();
-        // uruchomienie przeglądarki Chrome
-        driver = new ChromeDriver();
 
-        // otworzenie okna przeglądarki na pełnym ekranie
-        driver.manage().window().maximize();
         // przejście do strony testeroprogramowania
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
@@ -101,20 +85,12 @@ public class FirstTest extends BaseTest{
         softAssert.assertEquals(para.getText(),"Dopiero się pojawiłem!");
 
         System.out.println("Klasa: FirstTest, Metoda: firstTest");
-
-        driver.quit();
         softAssert.assertAll();
     }
 
-    @Test @Ignore
+    @Test
     public void secondTest(){
-        //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
-        WebDriverManager.chromedriver().setup();
-        // uruchomienie przeglądarki Chrome
-        driver = new ChromeDriver();
 
-        // otworzenie okna przeglądarki na pełnym ekranie
-        driver.manage().window().maximize();
         // przejście do strony testeroprogramowania
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
@@ -136,15 +112,9 @@ public class FirstTest extends BaseTest{
         driver.quit();
     }
 
-    @Test @Ignore
+    @Test
     public void thirdTest(){
-        //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
-        WebDriverManager.chromedriver().setup();
-        // uruchomienie przeglądarki Chrome
-        driver = new ChromeDriver();
 
-        // otworzenie okna przeglądarki na pełnym ekranie
-        driver.manage().window().maximize();
         // przejście do strony testeroprogramowania
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 

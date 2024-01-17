@@ -7,8 +7,7 @@ import org.testng.annotations.*;
 
 public class BaseTest {
 
-    WebDriver driver;
-
+    WebDriver driver = DriverFactory.getDriver();
     @BeforeSuite
     public void beforeSuite(){
         System.out.println("Before suite");
@@ -22,6 +21,7 @@ public class BaseTest {
     @BeforeTest // uruchomienie przed pierwszym testem
     public void beforeTest(){
         System.out.println("I am running before Test");
+        driver.manage().window().maximize();
     }
     @BeforeMethod // uruchomione przed każdą metodą testową
     public void beforeMethod(){
@@ -40,6 +40,8 @@ public class BaseTest {
     @AfterTest // uruchomienie po ostatnim teście
     public void afterTest(){
         System.out.println("I am running after Test");
+        driver.quit();
+
     }
 
     @AfterMethod// uruchomione po każdej metodzie testowej
