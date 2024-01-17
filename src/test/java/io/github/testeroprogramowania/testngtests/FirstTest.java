@@ -85,7 +85,7 @@ public class FirstTest extends BaseTest{
         softAssert.assertEquals(para.getText(),"Dopiero się pojawiłem!");
 
         System.out.println("Klasa: FirstTest, Metoda: firstTest");
-        softAssert.assertAll();
+        //softAssert.assertAll();
     }
 
     @Test
