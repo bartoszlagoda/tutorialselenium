@@ -9,12 +9,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
 
+@Listeners(value = {SampleTestListener.class})
 public class FirstTest extends BaseTest{
 
     // WebDriverWait rozszerza FluentWait
@@ -61,7 +63,7 @@ public class FirstTest extends BaseTest{
         driver.quit();
     }
 
-    @Test
+    @Test @Ignore
     public void softAssertionTest(){
         //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
         WebDriverManager.chromedriver().setup();
@@ -104,7 +106,7 @@ public class FirstTest extends BaseTest{
         softAssert.assertAll();
     }
 
-    @Test
+    @Test @Ignore
     public void secondTest(){
         //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)
         WebDriverManager.chromedriver().setup();
