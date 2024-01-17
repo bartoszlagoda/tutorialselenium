@@ -6,9 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -43,9 +41,20 @@ public class FirstTest extends BaseTest{
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p")));
         waitForElementToExist(By.cssSelector("p"));
 
+        WebElement para = driver.findElement(By.cssSelector("p"));
         String paraText = driver.findElement(By.cssSelector("p")).getText();
 
-        Assert.assertEquals(paraText,"Dopiero się pojawiłem!");
+        // Przykład asercji twardych
+
+        Assert.assertEquals(para.isDisplayed(),true);
+        Assert.assertTrue(para.isDisplayed()); // lepsze niz to u góry
+
+        Assert.assertTrue(para.getText().startsWith("Dopiero"));
+        Assert.assertFalse(para.getText().startsWith("Pojawiłem"));
+
+        Assert.assertEquals(para.getText(),"Dopiero się pojawiłem!");
+        Assert.assertEquals(para.getText(),"Dopiero","Teksty sa rozne."); // doda naszą wiadomość do błędu
+
         System.out.println("Klasa: FirstTest, Metoda: firstTest");
 
         driver.quit();

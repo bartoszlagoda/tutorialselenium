@@ -18,6 +18,8 @@ public class SecondTest extends BaseTest{
 
     // WebDriverWait rozszerza FluentWait
 
+
+
     @Test
     public void firstTest(){
         //zainicjowanie chromedrivera (jeśli webdriver nie jest zainstalowany, manager go zainstaluje za nas)

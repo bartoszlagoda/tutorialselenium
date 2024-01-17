@@ -40,7 +40,6 @@ public class BaseTest {
     @AfterTest // uruchomienie po ostatnim teście
     public void afterTest(){
         System.out.println("I am running after Test");
-        driver.quit();
     }
 
     @AfterMethod// uruchomione po każdej metodzie testowej
